@@ -19,7 +19,7 @@
 	        User user = (User) session.getAttribute("user");
 	        if (user != null) {
 	    %>
-	        <p>Account Number: <%= user.getAccNo() %></p>
+	        <p>Account Number: <%= user.getAccountNumber() %></p>
 	        <p>Account Type: <%= user.getTypeOfAccount() %></p>
 	        <p>Balance: <%= user.getBalance() %></p>
 	        <!-- Other account details -->

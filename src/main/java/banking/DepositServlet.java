@@ -1,11 +1,5 @@
 package banking;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,10 +7,14 @@ import java.nio.file.Files;
 import java.util.Date;
 import java.util.Random;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import java.io.IOException;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class DepositServlet extends HttpServlet {
 
@@ -33,6 +31,7 @@ public class DepositServlet extends HttpServlet {
         userJson.put("balance", currentBalance + amount);
 
         // Add transaction logic here if needed
+        
         
         // Handle transactions array
         JSONArray transactions = userJson.getJSONArray("transactions");
@@ -58,24 +57,24 @@ public class DepositServlet extends HttpServlet {
         String realPathToUsersFile = getServletContext().getRealPath("/users.json");
         File file = new File(realPathToUsersFile);
         
-        String accountType = user.getTypeOfAccount();
+//        String accountType = user.getAccountType();
 
-        boolean success;
-        switch (accountType) {
-            case "Salary":
-                success = user.performDeposit(amount);
-                break;
-            case "Saving":
-                success = user.performDeposit(amount);
-                break;
-            case "Current":
-                success = user.performDeposit(amount);
-                break;
-            default:
-                // Handle unknown account type
-                success = false;
-                break;
-        }
+//        boolean success;
+//        switch (accountType) {
+//            case "Salary":
+//                success = user.performDeposit(amount);
+//                break;
+//            case "Saving":
+//                success = user.performDeposit(amount);
+//                break;
+//            case "Current":
+//                success = user.performDeposit(amount);
+//                break;
+//            default:
+//                // Handle unknown account type
+//                success = false;
+//                break;
+//        }
         
 
         try {
